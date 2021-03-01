@@ -6,33 +6,33 @@ import EditFilm from './EditFilm'
 import FilmTable from './FilmTable'
 
 const AdminFilm = () => {
-    const [users, setUsers] = useState(List);
+    const [films, setFilms] = useState(List);
   
-    const addUser = (user) => {
-      user.id = users.length + 1;
-      setUsers([...users, user]);
+    const addFilms = (film) => {
+      film.id = films.length + 1;
+      setFilms([...films, film]);
     };
   
-    const deleteUser = (id) => {
-      setUsers(users.filter((user) => user.id !== id));
+    const deleteFilm = (id) => {
+      setFilms(films.filter((film) => film.id !== id));
     };
   
     const [editing, setEditing] = useState(false);
   
-    const initialUser = { id: null, name: "", username: "" };
+    const initialFilm = { id: null, name: "", filmname: "" };
   
-    const [currentUser, setCurrentUser] = useState(initialUser);
+    const [currentFilm, setCurrentUser] = useState(initialFilm);
   
-    const editUser = (id, user) => {
+    const editFilm = (id, film) => {
       setEditing(true);
-      setCurrentUser(user);
+      setCurrentUser(film);
     };
   
-    const updateUser = (newUser) => {
-      setUsers(
-        users.map((user) => (user.id === currentUser.id ? newUser : user))
+    const updateFilm = (newUser) => {
+      setFilms(
+        films.map((film) => (film.id === currentFilm.id ? newUser : film))
       );
-      setCurrentUser(initialUser);
+      setCurrentUser(initialFilm);
       setEditing(false);
     };
   
@@ -44,24 +44,24 @@ const AdminFilm = () => {
               <div>
                 <h2>Modifier un film</h2>
                 <EditFilm
-                  currentUser={currentUser}
+                  currentFilm={currentFilm}
                   setEditing={setEditing}
-                  updateUser={updateUser}
+                  updateFilm={updateFilm}
                 />
               </div>
             ) : (
               <div>
                 <h2>Ajout d'un film</h2>
-                <AddFilm addUser={addUser} />
+                <AddFilm addFilms={addFilms} />
               </div>
             )}
           </div>
           <div className="seven columns">
             <h2>Liste des films</h2>
             <FilmTable
-              users={users}
-              deleteUser={deleteUser}
-              editUser={editUser}
+              films={films}
+              deleteFilm={deleteFilm}
+              editFilm={editFilm}
             />
           </div>
         </div>

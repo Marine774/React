@@ -8,9 +8,9 @@ import { useAsyncRequest } from "./hooks";
 
 const App = () => {
   const [data, loading] = useAsyncRequest(3);
-  // Fixed array of users:
-  // const [users, setUsers] = userList;
-  const [users, setUsers] = useState(null);
+  // Fixed array of films:
+  // const [films, setFilm] = filmList;
+  const [films, setFilm] = useState(null);
 
   useEffect(() => {
     if (data) {
@@ -21,35 +21,35 @@ const App = () => {
           description: obj.title.first + " " + obj.title.last,
         };
       });
-      setUsers(formattedUsers);
+      setFilm(formattedUsers);
     }
   }, [data]);
 
-  const addUser = (user) => {
-    user.id = users.length;
-    setUsers([...users, user]);
+  const addFilm = (film) => {
+    film.id = films.length;
+    setFilm([...films, film]);
   };
 
-  const deleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
+  const deleteFilm = (id) => {
+    setFilm(films.filter((film) => film.id !== id));
   };
 
   const [editing, setEditing] = useState(false);
 
-  const initialUser = { id: null, title: "", description: "" };
+  const initialFilm = { id: null, title: "", description: "" };
 
-  const [currentUser, setCurrentUser] = useState(initialUser);
+  const [currentFilm, setCurrentUser] = useState(initialFilm);
 
-  const editUser = (id, user) => {
+  const editFilm = (id, film) => {
     setEditing(true);
-    setCurrentUser(user);
+    setCurrentUser(film);
   };
 
-  const updateUser = (newUser) => {
-    setUsers(
-      users.map((user) => (user.id === currentUser.id ? newUser : user))
+  const updateFilm = (newUser) => {
+    setFilm(
+      films.map((film) => (film.id === currentFilm.id ? newUser : film))
     );
-    setCurrentUser(initialUser);
+    setCurrentUser(initialFilm);
     setEditing(false);
   };
 
@@ -60,30 +60,30 @@ const App = () => {
         <div className="five columns">
           {editing ? (
             <div>
-              <h2>Edit user</h2>
+              <h2>Edit film</h2>
               <EditFilm
-                currentUser={currentUser}
+                currentFilm={currentFilm}
                 setEditing={setEditing}
-                updateUser={updateUser}
+                updateFilm={updateFilm}
               />
             </div>
           ) : (
             <div>
-              <h2>Add user</h2>
-              <AddFilm addUser={addUser} />
+              <h2>Add film</h2>
+              <AddFilm addFilm={addFilm} />
             </div>
           )}
         </div>
-        {loading || !users ? (
+        {loading || !films ? (
           <p>Loading...</p>
         ) : (
           <div className="seven columns">
-            <h2>View users</h2>
+            <h2>View films</h2>
 
             <FilmTable
-              users={users}
-              deleteUser={deleteUser}
-              editUser={editUser}
+              films={films}
+              deleteFilm={deleteFilm}
+              editFilm={editFilm}
             />
           </div>
         )}
