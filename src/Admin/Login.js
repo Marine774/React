@@ -12,34 +12,6 @@ function Login(props) {
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
 
-  // function postLogin() {
-  //   axios.get("https://my-json-server.typicode.com/Marine774/ApiFilms/login", {
-  //     username,
-  //     password 
-  //   }).then(result => {
-      
-    
-  //     if (result.status === 200 ) {
-        
-  //       setAuthTokens(result.data);
-  //       alert ('donne api '+ result.data)
-  //       alert('donne champs : '+username + password)
-  //       alert(isAllowed(result,password, username));
-  //       if(isAllowed(result,password, username)){
-  //         setLoggedIn(true);
-  //         alert('c\' bon');
-  //       }else{
-  //         alert('pas bon');
-  //         setIsError(true);
-  //       }
-  //     } else {
-  //       setIsError(true);
-  //     }
-  //   }).catch(e => {
-  //     setIsError(true);
-  //   });
-    
-  // }
 
   function postLogin () {
      axios.get("https://my-json-server.typicode.com/Marine774/ApiFilms/login") 

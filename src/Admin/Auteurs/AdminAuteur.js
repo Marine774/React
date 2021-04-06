@@ -6,33 +6,33 @@ import EditAuteur from './EditAuteur'
 import AuteurTable from './AuteurTable'
 
 const AdminAuteur = () => {
-    const [users, setUsers] = useState(List);
+    const [auteurs, setAuteur] = useState(List);
   
-    const addUser = (user) => {
-      user.id = users.length + 1;
-      setUsers([...users, user]);
+    const addAuteur = (auteur) => {
+      auteur.id = auteurs.length + 1;
+      setAuteur([...auteurs, auteur]);
     };
   
-    const deleteUser = (id) => {
-      setUsers(users.filter((user) => user.id !== id));
+    const deleteAuteur = (id) => {
+      setAuteur(auteurs.filter((auteur) => auteur.id !== id));
     };
   
     const [editing, setEditing] = useState(false);
   
-    const initialUser = { id: null, name: "", username: "" };
+    const initialAuteur = { id: null, name: "", auteurname: "" };
   
-    const [currentUser, setCurrentUser] = useState(initialUser);
+    const [currentAuteur, setCurrentAuteur] = useState(initialAuteur);
   
-    const editUser = (id, user) => {
+    const EditAuteur = (id, auteur) => {
       setEditing(true);
-      setCurrentUser(user);
+      setCurrentAuteur(auteur);
     };
   
-    const updateUser = (newUser) => {
-      setUsers(
-        users.map((user) => (user.id === currentUser.id ? newUser : user))
+    const updateAuteur = (newAuteur) => {
+      setAuteur(
+        auteurs.map((auteur) => (auteur.id === currentAuteur.id ? newAuteur : auteur))
       );
-      setCurrentUser(initialUser);
+      setCurrentAuteur(initialAuteur);
       setEditing(false);
     };
   
@@ -44,24 +44,24 @@ const AdminAuteur = () => {
               <div>
                 <h2>Modifier un auteur</h2>
                 <EditAuteur
-                  currentUser={currentUser}
+                  currentAuteur={currentAuteur}
                   setEditing={setEditing}
-                  updateUser={updateUser}
+                  updateAuteur={updateAuteur}
                 />
               </div>
             ) : (
               <div>
                 <h2>Ajout d'un auteur</h2>
-                <AddAuteur addUser={addUser} />
+                <AddAuteur addAuteur={addAuteur} />
               </div>
             )}
           </div>
           <div className="seven columns">
-            <h2>Liste des films</h2>
+            <h2>Liste des auteurs</h2>
             <AuteurTable
-              users={users}
-              deleteUser={deleteUser}
-              editUser={editUser}
+              auteurs={auteurs}
+              deleteAuteur={deleteAuteur}
+              EditAuteur={EditAuteur}
             />
           </div>
         </div>

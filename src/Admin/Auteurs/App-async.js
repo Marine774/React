@@ -8,47 +8,47 @@ import { useAsyncRequest } from "./hooks";
 
 const App = () => {
   const [data, loading] = useAsyncRequest(3);
-  // Fixed array of users:
-  // const [users, setUsers] = userList;
-  const [users, setUsers] = useState(null);
+  // Fixed array of auteurs:
+  // const [auteurs, setAuteur] = auteurList;
+  const [auteurs, setAuteur] = useState(null);
 
   useEffect(() => {
     if (data) {
-      const formattedUsers = data.map((obj, i) => {
+      const formattedAuteur = data.map((obj, i) => {
         return {
           id: i,
           nom: obj.nom.first
         };
       });
-      setUsers(formattedUsers);
+      setAuteur(formattedAuteur);
     }
   }, [data]);
 
-  const addUser = (user) => {
-    user.id = users.length;
-    setUsers([...users, user]);
+  const addAuteur = (auteur) => {
+    auteur.id = auteurs.length;
+    setAuteur([...auteurs, auteur]);
   };
 
-  const deleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
+  const deleteAuteur = (id) => {
+    setAuteur(auteurs.filter((auteur) => auteur.id !== id));
   };
 
   const [editing, setEditing] = useState(false);
 
-  const initialUser = { id: null, nom: "" };
+  const initialAuteur = { id: null, nom: "" };
 
-  const [currentUser, setCurrentUser] = useState(initialUser);
+  const [currentAuteur, setCurrentAuteur] = useState(initialAuteur);
 
-  const editUser = (id, user) => {
+  const EditAuteur = (id, auteur) => {
     setEditing(true);
-    setCurrentUser(user);
+    setCurrentAuteur(auteur);
   };
 
-  const updateUser = (newUser) => {
-    setUsers(
-      users.map((user) => (user.id === currentUser.id ? newUser : user))
+  const updateAuteur = (newAuteur) => {
+    setAuteur(
+      auteurs.map((auteur) => (auteur.id === currentAuteur.id ? newAuteur : auteur))
     );
-    setCurrentUser(initialUser);
+    setCurrentAuteur(initialAuteur);
     setEditing(false);
   };
 
@@ -60,28 +60,28 @@ const App = () => {
             <div>
              
               <EditAuteur
-                currentUser={currentUser}
+                currentAuteur={currentAuteur}
                 setEditing={setEditing}
-                updateUser={updateUser}
+                updateAuteur={updateAuteur}
               />
             </div>
           ) : (
             <div>
               
-              <AddAuteur addUser={addUser} />
+              <AddAuteur addAuteur={addAuteur} />
             </div>
           )}
         </div>
-        {loading || !users ? (
+        {loading || !auteurs ? (
           <p>Loading...</p>
         ) : (
           <div className="seven columns">
          
 
             <AuteurTable
-              users={users}
-              deleteUser={deleteUser}
-              editUser={editUser}
+              auteurs={auteurs}
+              deleteAuteur={deleteAuteur}
+              EditAuteur={EditAuteur}
             />
           </div>
         )}

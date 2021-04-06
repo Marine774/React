@@ -2,26 +2,26 @@ import React, {useState} from 'react';
 
 const AddFilm = (props) => {
 
-    const initUser = {id: null, nom: ''};
+    const initAuteur = {id: null, nom: ''};
 
-    const [user, setUser] = useState(initUser);
+    const [auteur, setAuteur] = useState(initAuteur);
 
     const handleChange = e => {
         const {nom, value} = e.target;
-        setUser({...user, [nom]: value});
+        setAuteur({...auteur, [nom]: value});
     }
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (user.nom ) {
-            handleChange(e, props.addUser(user));
+        if (auteur.nom ) {
+            handleChange(e, props.addAuteur(auteur));
         }
     }
 
     return (
-     <div id="addFilm">
+     <div id="addAuteur">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nom et prénom"  value={user.nom} name="nom" onChange={handleChange} ></input>
+          <input type="text" class="form-control" placeholder="Nom et prénom"  value={auteur.nom} name="nom"  onChange={handleChange} ></input>
         </div>
 
 

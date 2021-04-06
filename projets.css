@@ -1,0 +1,325 @@
+/*CONTENUER_FLEX*/
+.conteneur_flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+/*ELEMENT_FLEX*/
+.element_flex {
+  flex: 0 1 25%;
+}
+
+/*MENU*/
+.menu {
+  background: #006b6b;
+  text-align: center;
+  list-style: none;
+  z-index: 2;
+  width: 100%;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 10px 0px 0px 0px;
+  display: inline-flex;
+}
+
+.nav-item {
+  padding: 0px 10px;
+  text-decoration: none;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-item a:hover {
+  color: black;
+  text-decoration: none;
+}
+/*MENU PROJETS*/
+.menu-projets{
+  background: #efefef;
+  text-align: center;
+  list-style: none;
+  z-index: 2;
+  width: 100%;
+  padding-top: 2em;
+}
+.menu-projets .nav-item a {
+  color:black;
+}
+
+.menu-projets .nav-item a:hover {
+  color:#006b6b;
+}
+
+/*EXPLICATION*/
+
+#explication{
+  padding: 2em;
+  background: #efefef;
+}
+#explication h1 #e{
+  font-size: 1em;
+}
+
+#explication h2{
+  font-size: 1em;
+}
+
+/*TITRE*/
+h1 {
+  margin-top: 30px;
+  margin-left: 30px;
+  font-size: 1.6em;
+  border-bottom: solid 2px #006B6B;
+  border-top: solid 2px #006B6B;
+  text-align: center;
+  font-style: italic;
+  margin: 0 18em;
+  padding: 10px;
+  font-size: 1.8em !important;
+}
+
+
+/*SECTIONS*/
+section {
+  padding: 20px 0px 40px 0px;
+}
+
+#projets {
+  background-color: #006b6b;
+}
+
+/*CADRE*/
+.cadre {
+  background: white;
+  text-align: center;
+  padding: 20px 20px 1px;
+  margin: 20px;
+  text-decoration: none;
+  transition-property: transform;
+  transition-duration: 2000ms;
+}
+
+
+#img img {
+  height: 8em;
+  width: 100%;
+  margin-bottom: 40px;
+  border: solid black 1px;
+  padding: 7px;
+}
+
+.cadre h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  color: #006b6b;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.cadre h5 {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  color: #212529;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+
+/*PROJETS**/
+#projets {
+  background: #efefef;
+  text-align: center;
+}
+
+/*btn choix*/
+.row,
+.row>.column {
+  padding: 8px;
+}
+
+.column {
+  float: left;
+  width: 100%;
+  display: none;
+}
+
+.row:after {
+  content: "";
+  clear: both;
+}
+
+
+.show {
+  display: block;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+#myBtnContainer {
+  text-align: center;
+}
+
+.btn.active,
+.btn:active {
+  background-color: orange;
+}
+
+.btn:hover {
+  background-color: white;
+}
+
+.content {
+  position: relative;
+}
+
+.content-text {
+  text-decoration: none;
+
+}
+
+.content-details a {
+  text-decoration: none;
+}
+
+.content-details a:hover {
+  text-decoration: none;
+}
+
+.content-title {
+  color: #f2f1df;
+  text-decoration: underline;
+}
+
+.content-title:hover {
+  text-decoration: none;
+}
+
+.content .content-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  height: auto;
+  width: auto;
+  margin: -20px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay {
+  opacity: 1;
+}
+
+.content-image {
+  width: 100%;
+}
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details {
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details p {
+  color: #f2f1df;
+  font-size: 0.8em;
+}
+
+.fadeIn-bottom {
+  top: 80%;
+}
+
+.img_names {
+  width: 10%;
+  padding-top: 2%;
+}
+
+/*btn télécharger*/
+.pulse {
+  color: #006b6b;
+}
+
+.pulse:hover {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+  color: #006b6b;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #006b6b;
+  }
+}
+
+#projets button a {
+  color: #006b6b;
+  text-decoration: none;
+  border-radius: 15%;
+}
+
+#projets button a:hover {
+  color: #006b6b;
+  text-decoration: none;
+}
+
+#projets button {
+  color: #006b6b;
+  transition: 1.25s;
+  border-radius: 32px;
+}
+
+#projets button:hover {
+  border-color: #006b6b;
+  color: #006b6b;
+}
+
+#projets button i:hover {
+  color: #006b6b;
+}
+
+#projets button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}

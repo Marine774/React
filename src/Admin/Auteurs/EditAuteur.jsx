@@ -3,25 +3,25 @@ import React, {useState, useEffect} from 'react';
 const EditFilm = (props) => {
 
     useEffect(() => {
-        setUser(props.currentUser)
+        setAuteur(props.currentAuteur)
     }, [props])
 
-    const [user, setUser] = useState(props.currentUser);
+    const [auteur, setAuteur] = useState(props.currentAuteur);
 
     const handleChange = e => {
         const {nom, value} = e.target;
-        setUser({...user, [nom]: value});
+        setAuteur({...auteur, [nom]: value});
         }
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (user.nom) props.updateUser(user);
+        if (auteur.nom) props.updateAuteur(auteur);
     }
 
     return (
         <div id="addFilm">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="nom"  value={user.nom} nom="nom" onChange={handleChange} ></input>
+          <input type="text" class="form-control" placeholder="nom"  value={auteur.nom} nom="nom" onChange={handleChange} ></input>
         </div>
 
 
